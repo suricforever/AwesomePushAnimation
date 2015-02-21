@@ -14,6 +14,8 @@
 		ACD480191A8B40AD002A3037 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD480181A8B40AD002A3037 /* Images.xcassets */; };
 		ACD4801C1A8B40AD002A3037 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD4801A1A8B40AD002A3037 /* LaunchScreen.xib */; };
 		ACD480281A8B40AD002A3037 /* LearnSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD480271A8B40AD002A3037 /* LearnSwiftTests.swift */; };
+		ACD480381A903F20002A3037 /* PingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD480371A903F20002A3037 /* PingViewController.swift */; };
+		ACD4803A1A90465C002A3037 /* CircleTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD480391A90465C002A3037 /* CircleTransitionAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		ACD480211A8B40AD002A3037 /* LearnSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LearnSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD480261A8B40AD002A3037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD480271A8B40AD002A3037 /* LearnSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnSwiftTests.swift; sourceTree = "<group>"; };
+		ACD480371A903F20002A3037 /* PingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingViewController.swift; sourceTree = "<group>"; };
+		ACD480391A90465C002A3037 /* CircleTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleTransitionAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				ACD4800F1A8B40AD002A3037 /* AppDelegate.swift */,
-				ACD480111A8B40AD002A3037 /* FirstViewController.swift */,
-				ACD480131A8B40AD002A3037 /* SecondViewController.swift */,
+				ACD480331A903E25002A3037 /* First */,
+				ACD480341A903E32002A3037 /* Second */,
 				ACD480151A8B40AD002A3037 /* Main.storyboard */,
 				ACD480181A8B40AD002A3037 /* Images.xcassets */,
 				ACD4801A1A8B40AD002A3037 /* LaunchScreen.xib */,
@@ -113,6 +117,24 @@
 				ACD480261A8B40AD002A3037 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACD480331A903E25002A3037 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				ACD480111A8B40AD002A3037 /* FirstViewController.swift */,
+				ACD480371A903F20002A3037 /* PingViewController.swift */,
+				ACD480391A90465C002A3037 /* CircleTransitionAnimator.swift */,
+			);
+			name = First;
+			sourceTree = "<group>";
+		};
+		ACD480341A903E32002A3037 /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				ACD480131A8B40AD002A3037 /* SecondViewController.swift */,
+			);
+			name = Second;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD480381A903F20002A3037 /* PingViewController.swift in Sources */,
 				ACD480141A8B40AD002A3037 /* SecondViewController.swift in Sources */,
+				ACD4803A1A90465C002A3037 /* CircleTransitionAnimator.swift in Sources */,
 				ACD480101A8B40AD002A3037 /* AppDelegate.swift in Sources */,
 				ACD480121A8B40AD002A3037 /* FirstViewController.swift in Sources */,
 			);
@@ -409,6 +433,7 @@
 				ACD4802D1A8B40AD002A3037 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACD4802E1A8B40AD002A3037 /* Build configuration list for PBXNativeTarget "LearnSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +442,7 @@
 				ACD480301A8B40AD002A3037 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
