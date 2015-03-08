@@ -29,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC7CB0DE1A98716D004E7445 /* Swift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Swift.playground; sourceTree = "<group>"; };
 		ACD4800A1A8B40AD002A3037 /* LearnSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD4800E1A8B40AD002A3037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD4800F1A8B40AD002A3037 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		ACD4800C1A8B40AD002A3037 /* LearnSwift */ = {
 			isa = PBXGroup;
 			children = (
+				AC7CB0DE1A98716D004E7445 /* Swift.playground */,
 				ACD4800F1A8B40AD002A3037 /* AppDelegate.swift */,
 				ACD480331A903E25002A3037 /* First */,
 				ACD480341A903E32002A3037 /* Second */,

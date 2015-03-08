@@ -17,6 +17,10 @@ class FirstViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func goBack(sender: AnyObject) {
+        self.navigationController?.navigationController?.popViewControllerAnimated(true);
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
