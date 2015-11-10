@@ -37,7 +37,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate{
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        var pan = UIPanGestureRecognizer(target: self, action: "panned:")
+        let pan = UIPanGestureRecognizer(target: self, action: "panned:")
         self.navigationController!.view.addGestureRecognizer(pan)
     }
     
@@ -49,10 +49,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate{
                 self.navigationController?.popViewControllerAnimated(true)
             }
             else{
-                self.navigationController?.topViewController.performSegueWithIdentifier("PushSegue", sender: nil)
+                self.navigationController?.topViewController!.performSegueWithIdentifier("PushSegue", sender: nil)
             }
         case .Changed:
-            var translation = gestureRecognizer.translationInView(self.navigationController!.view)
+            let translation = gestureRecognizer.translationInView(self.navigationController!.view)
             var completionProgress :CGFloat
             if self.navigationController?.viewControllers.count > 1
             {
@@ -63,10 +63,10 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate{
             {
                 completionProgress = (translation.x > 0 ? translation.x :0) / CGRectGetWidth(self.navigationController!.view.bounds)
             }
-            println(completionProgress)
+            print(completionProgress)
             self.interactionController?.updateInteractiveTransition(completionProgress)
         case .Ended:
-            println("velocityInView:",gestureRecognizer.velocityInView(self.navigationController!.view).x)
+            print("velocityInView:",gestureRecognizer.velocityInView(self.navigationController!.view).x)
             if gestureRecognizer.velocityInView(self.navigationController!.view).x > 0 {
                 if self.navigationController?.viewControllers.count > 1
                 {
@@ -95,7 +95,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate{
     }
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-      var animator = CircleTransitionAnimator()
+      let animator = CircleTransitionAnimator()
       animator.isPushing = operation == UINavigationControllerOperation.Push ? true : false
       return animator
     }

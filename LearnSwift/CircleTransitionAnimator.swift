@@ -13,7 +13,7 @@ class CircleTransitionAnimator: NSObject ,UIViewControllerAnimatedTransitioning 
     weak var transitionContext: UIViewControllerContextTransitioning?
     var isPushing:Bool = true
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.5
     }
     
@@ -22,15 +22,15 @@ class CircleTransitionAnimator: NSObject ,UIViewControllerAnimatedTransitioning 
         self.transitionContext = transitionContext
         
         // 2
-        var containerView = transitionContext.containerView()
+        let containerView = transitionContext.containerView()
         var fromViewController :UIViewController
         var toViewController :UIViewController
         var button : UIButton
         if (self.isPushing)
         {
-            var fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as FirstViewController
-            var toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as PingViewController
-            var fromButton = fromVC.buttton
+            let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! FirstViewController
+            let toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! PingViewController
+            let fromButton = fromVC.buttton
             
             fromViewController = fromVC
             toViewController = toViewVC
@@ -38,9 +38,9 @@ class CircleTransitionAnimator: NSObject ,UIViewControllerAnimatedTransitioning 
         }
         else
         {
-            var fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as PingViewController
-            var toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as FirstViewController
-            var fromButton = fromVC.backBtn
+            let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! PingViewController
+            let toViewVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! FirstViewController
+            let fromButton = fromVC.backBtn
             
             fromViewController = fromVC
             toViewController = toViewVC
@@ -50,18 +50,18 @@ class CircleTransitionAnimator: NSObject ,UIViewControllerAnimatedTransitioning 
         // 3
         if self.isPushing
         {
-            containerView.addSubview(toViewController.view)
+            containerView!.addSubview(toViewController.view)
         }
         else
         {
-            containerView.addSubview(toViewController.view)
-            containerView.sendSubviewToBack(toViewController.view)
+            containerView!.addSubview(toViewController.view)
+            containerView!.sendSubviewToBack(toViewController.view)
         }
         // 4
-        var beginMaskPathInitial = UIBezierPath(ovalInRect: button.frame)
-        var extremePoint = CGPointMake(button.center.x, button.center.y - CGRectGetHeight(toViewController.view.bounds)) // need more research
-        var radius = sqrt(extremePoint.x * extremePoint.x + extremePoint.y * extremePoint.y)
-        var endMaskPathFinal = UIBezierPath(ovalInRect: CGRectInset(button.frame, -radius, -radius))
+        let beginMaskPathInitial = UIBezierPath(ovalInRect: button.frame)
+        let extremePoint = CGPointMake(button.center.x, button.center.y - CGRectGetHeight(toViewController.view.bounds)) // need more research
+        let radius = sqrt(extremePoint.x * extremePoint.x + extremePoint.y * extremePoint.y)
+        let endMaskPathFinal = UIBezierPath(ovalInRect: CGRectInset(button.frame, -radius, -radius))
         
         var circleMaskPathInitial :UIBezierPath
         var circleMaskPathFinal :UIBezierPath
@@ -77,7 +77,7 @@ class CircleTransitionAnimator: NSObject ,UIViewControllerAnimatedTransitioning 
         }
         
         // 5
-        var maskLayer = CAShapeLayer()
+        let maskLayer = CAShapeLayer()
         maskLayer.path = circleMaskPathFinal.CGPath
         
         if self.isPushing
@@ -90,7 +90,7 @@ class CircleTransitionAnimator: NSObject ,UIViewControllerAnimatedTransitioning 
         }
         
         // 6
-        var maskLayerAnimation = CABasicAnimation(keyPath: "path")
+        let maskLayerAnimation = CABasicAnimation(keyPath: "path")
         maskLayerAnimation.fromValue = circleMaskPathInitial.CGPath
         maskLayerAnimation.toValue = circleMaskPathFinal.CGPath
         maskLayerAnimation.duration = self.transitionDuration(self.transitionContext!)
@@ -98,7 +98,7 @@ class CircleTransitionAnimator: NSObject ,UIViewControllerAnimatedTransitioning 
         maskLayer.addAnimation(maskLayerAnimation, forKey: "CircleAnimation")
     }
     
-    override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         self.transitionContext?.completeTransition(!self.transitionContext!.transitionWasCancelled())
         self.transitionContext?.viewControllerForKey(UITransitionContextToViewControllerKey)?.view.layer.mask = nil
         self.transitionContext?.viewControllerForKey(UITransitionContextFromViewControllerKey)?.view.layer.mask = nil
